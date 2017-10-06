@@ -1,13 +1,12 @@
 package com.example.okano.trippic
 
-import android.graphics.pdf.PdfDocument
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.TabLayout
 import android.support.v4.view.ViewPager
-import android.view.View
 import android.support.v7.widget.Toolbar
 import com.example.okano.trippic.Fragments.PageAdapter
+
 
 class MainActivity : AppCompatActivity() {
     private var pageAdapter: PageAdapter? = null
@@ -29,4 +28,5 @@ class MainActivity : AppCompatActivity() {
         tabLayout.setupWithViewPager(viewPager)
 
     }
+
 }

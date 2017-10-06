@@ -1,7 +1,6 @@
 package com.example.okano.trippic.Fragments
 
 
-import android.media.Image
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -10,7 +9,6 @@ import android.view.ViewGroup
 import android.widget.ImageView
 
 import com.example.okano.trippic.R
-import java.net.URL
 
 
 /**
