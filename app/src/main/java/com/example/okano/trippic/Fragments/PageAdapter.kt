@@ -11,20 +11,18 @@ class PageAdapter(fm: FragmentManager) :FragmentPagerAdapter(fm){
     override fun getItem(position: Int): Fragment {
         when (position){
             0 -> return StartFragment.newInstance("","")
-            1 -> return MapFragment.newInstance("","")
-            else -> return ConfigFragment.newInstance("","")
+            else -> return MapFragment.newInstance()
         }
     }
 
     override fun getCount(): Int {
-        return 3
+        return 2
     }
 
     override fun getPageTitle(position: Int): CharSequence {
         when (position){
             0 -> return "Start"
-            1 -> return "Map"
-            else -> return "Config"
+            else -> return "Map"
         }
     }
 }
