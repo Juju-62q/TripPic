@@ -49,7 +49,7 @@ class MapFragment : Fragment(), OnMapReadyCallback {
 
 
     companion object {
-        fun newInstance(): MapFragment {
+        fun newInstance(param1: String, param2: String): MapFragment {
             val fragment = MapFragment()
             val args = Bundle()
             fragment.arguments = args
