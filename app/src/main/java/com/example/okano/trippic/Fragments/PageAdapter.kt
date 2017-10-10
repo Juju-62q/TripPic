@@ -10,9 +10,9 @@ import android.support.v4.app.FragmentPagerAdapter
 class PageAdapter(fm: FragmentManager) :FragmentPagerAdapter(fm){
     override fun getItem(position: Int): Fragment {
         when (position){
-            0 -> return StartFragment.newInstance("","")
-            1 -> return MapFragment.newInstance("","")
-            else -> return ConfigFragment.newInstance("","")
+            0 -> return StartFragment.newInstance()
+            1 -> return MapFragment.newInstance()
+            else -> return ConfigFragment.newInstance()
         }
     }
 
@@ -20,11 +20,11 @@ class PageAdapter(fm: FragmentManager) :FragmentPagerAdapter(fm){
         return 3
     }
 
-    override fun getPageTitle(position: Int): CharSequence {
+    /*override fun getPageTitle(position: Int): CharSequence {
         when (position){
             0 -> return "Start"
             1 -> return "Map"
             else -> return "Config"
         }
-    }
+    }*/
 }
