@@ -26,6 +26,9 @@ class MainActivity : AppCompatActivity() {
 
         val tabLayout = findViewById<TabLayout>(R.id.tabs)
         tabLayout.setupWithViewPager(viewPager)
+        tabLayout.getTabAt(0)!!.setIcon(R.drawable.ic_home_black_24dp)
+        tabLayout.getTabAt(1)!!.setIcon(R.drawable.ic_map_black_24dp)
+        tabLayout.getTabAt(2)!!.setIcon(R.drawable.ic_settings_black_24dp)
 
     }
 
