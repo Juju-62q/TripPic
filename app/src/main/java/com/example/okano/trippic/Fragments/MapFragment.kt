@@ -1,16 +1,15 @@
 package com.example.okano.trippic.Fragments
 
 
-import android.graphics.Camera
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentManager
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.beardedhen.androidbootstrap.BootstrapButton
 import com.example.okano.trippic.R
 import com.google.android.gms.maps.*
-import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 
@@ -19,7 +18,7 @@ import com.google.android.gms.maps.model.MarkerOptions
  * Use the [MapFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class MapFragment : Fragment(), OnMapReadyCallback {
+class MapFragment : Fragment(), OnMapReadyCallback, View.OnClickListener {
 
     private var mMap : GoogleMap? = null
     var mMapView : MapView? = null
@@ -31,9 +30,16 @@ class MapFragment : Fragment(), OnMapReadyCallback {
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater!!.inflate(R.layout.fragment_map, container, false)
 
+        //Button
+        val logButton = view!!.findViewById<BootstrapButton>(R.id.startLog)
+        logButton.setOnClickListener(this)
+
+        val ownPoint = view!!.findViewById<BootstrapButton>(R.id.ownPoint)
+        ownPoint.setOnClickListener(this)
+
+        //Google Map
         mMapView = view.findViewById(R.id.mapView)
         mMapView!!.onCreate(savedInstanceState)
-
         mMapView!!.onResume()
 
         try{
@@ -57,6 +63,7 @@ class MapFragment : Fragment(), OnMapReadyCallback {
         }
     }
 
+    // Google Map
     override fun onMapReady(p0: GoogleMap?) {
         mMap = p0
 
@@ -83,5 +90,31 @@ class MapFragment : Fragment(), OnMapReadyCallback {
     override fun onLowMemory() {
         super.onLowMemory()
         mMapView!!.onLowMemory()
+    }
+
+    // Button
+    override fun onClick(v: View?) {
+        if (v != null){
+            when (v!!.id){
+                R.id.startLog -> {
+                    startLogClicked(v)
+                    return
+                }
+                R.id.ownPoint -> {
+                    ownLogClicked(v)
+                    return
+                }
+                else -> return
+            }
+        }
+        return
+    }
+
+    fun startLogClicked(v: View){
+        return
+    }
+
+    fun ownLogClicked(v: View){
+        return
     }
 }// Required empty public constructor
