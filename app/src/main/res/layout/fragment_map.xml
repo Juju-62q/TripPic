@@ -19,6 +19,7 @@
         bootstrap:roundedCorners="true"
         bootstrap:bootstrapSize="xl"
         bootstrap:bootstrapBrand="primary" />
+    <!--android:layout_marginBottom="50dp"-->
 
     <com.beardedhen.androidbootstrap.BootstrapButton
         android:id="@+id/ownPoint"
@@ -26,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="right|top"
         android:layout_marginRight="30dp"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="30dp"
         bootstrap:fontAwesomeIcon="fa_map_marker"
         bootstrap:bootstrapSize="xl"
         bootstrap:roundedCorners="true" />
