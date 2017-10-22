@@ -15,7 +15,8 @@
         android:title="GPSデータ取得間隔" />
 
     <Preference
-        android:title="全データ削除"/>
+        android:title="全データ削除"
+        android:key="allDelete"/>
 
     <Preference
         android:key="version"
