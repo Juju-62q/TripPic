@@ -19,14 +19,14 @@ import com.example.okano.trippic.R
 class ConfigFragment : PreferenceFragmentCompat() {
 
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+    /*override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         if (arguments != null) {
         }
-    }
+    }*/
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
-
+        setPreferencesFromResource(R.xml.preference, rootKey)
     }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
