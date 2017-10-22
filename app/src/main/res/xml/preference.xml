@@ -2,17 +2,23 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <SwitchPreferenceCompat
         android:defaultValue="false"
-        android:key="red"
-        android:summary="This is red."
-        android:title="red" />
-    <SwitchPreferenceCompat
-        android:defaultValue="true"
-        android:key="blue"
-        android:summary="This is blue."
-        android:title="blue" />
-    <SwitchPreferenceCompat
-        android:defaultValue="false"
-        android:key="yellow"
-        android:summary="This is yellow."
-        android:title="yellow" />
+        android:key="sendPic"
+        android:title="画像をサーバに送る" />
+
+    <ListPreference
+        android:defaultValue="10"
+        android:dialogTitle="GPSデータ取得間隔を選んでください"
+        android:entries="@array/intervalTimeForDisplay"
+        android:entryValues="@array/intervalTimeVal"
+        android:key="registerGPS"
+        android:summary="%s"
+        android:title="GPSデータ取得間隔" />
+
+    <Preference
+        android:title="全データ削除"/>
+
+    <Preference
+        android:key="version"
+        android:title="バージョン情報"
+        android:summary="0.0.1"/>
 </PreferenceScreen>
