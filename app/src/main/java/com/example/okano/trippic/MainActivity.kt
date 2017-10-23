@@ -6,6 +6,7 @@ import android.support.design.widget.TabLayout
 import android.support.v4.view.ViewPager
 import android.support.v7.widget.Toolbar
 import com.example.okano.trippic.Fragments.PageAdapter
+import com.example.okano.trippic.GPS.GPSPermmissionSetting
 
 
 class MainActivity : AppCompatActivity() {
@@ -30,6 +31,8 @@ class MainActivity : AppCompatActivity() {
         tabLayout.getTabAt(1)!!.setIcon(R.drawable.tab_icon_selector_map)
         tabLayout.getTabAt(2)!!.setIcon(R.drawable.tab_icon_selector_setting)
 
+        val gpsPermmissionSetting = GPSPermmissionSetting(this)
+        gpsPermmissionSetting.checkGPSPermission()
     }
 
 }

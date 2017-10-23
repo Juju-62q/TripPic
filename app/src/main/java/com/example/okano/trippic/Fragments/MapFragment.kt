@@ -101,7 +101,7 @@ class MapFragment : Fragment(), OnMapReadyCallback, View.OnClickListener {
                     return
                 }
                 R.id.ownPoint -> {
-                    ownLogClicked(v)
+                    ownPointClicked(v)
                     return
                 }
                 else -> return
@@ -114,7 +114,7 @@ class MapFragment : Fragment(), OnMapReadyCallback, View.OnClickListener {
         return
     }
 
-    fun ownLogClicked(v: View){
+    fun ownPointClicked(v: View){
         return
     }
 }// Required empty public constructor
