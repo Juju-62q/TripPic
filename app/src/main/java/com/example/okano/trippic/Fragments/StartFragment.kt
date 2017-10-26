@@ -25,7 +25,7 @@ class StartFragment : Fragment() {
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         var view = inflater!!.inflate(R.layout.fragment_start, container, false)
         val imageView = view.findViewById<ImageView>(R.id.image)
         imageView.setImageResource(R.drawable.leagla)

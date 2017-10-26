@@ -27,7 +27,7 @@ class MapFragment : Fragment(), OnMapReadyCallback, View.OnClickListener {
         super.onCreate(savedInstanceState)
     }
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater!!.inflate(R.layout.fragment_map, container, false)
 
         //Button
@@ -43,7 +43,7 @@ class MapFragment : Fragment(), OnMapReadyCallback, View.OnClickListener {
         mMapView!!.onResume()
 
         try{
-            MapsInitializer.initialize(activity.applicationContext)
+            MapsInitializer.initialize(activity)
         }catch (e : Exception){
             e.printStackTrace()
         }
