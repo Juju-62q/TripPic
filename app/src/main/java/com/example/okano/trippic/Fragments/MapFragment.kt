@@ -1,6 +1,7 @@
 package com.example.okano.trippic.Fragments
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.util.Log
@@ -8,6 +9,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.beardedhen.androidbootstrap.BootstrapButton
+import com.example.okano.trippic.MapsActivity
+//import com.example.okano.trippic.MapsActivity
 import com.example.okano.trippic.R
 import com.google.android.gms.maps.*
 import com.google.android.gms.maps.model.LatLng
@@ -111,6 +114,8 @@ class MapFragment : Fragment(), OnMapReadyCallback, View.OnClickListener {
     }
 
     fun startLogClicked(v: View){
+        val intent = Intent(activity, MapsActivity::class.java)
+        startActivity(intent)
         return
     }
 

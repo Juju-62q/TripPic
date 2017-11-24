@@ -7,6 +7,8 @@ import android.support.v4.view.ViewPager
 import android.support.v7.widget.Toolbar
 import com.example.okano.trippic.Fragments.PageAdapter
 import com.example.okano.trippic.GPS.GPSPermmissionSetting
+import com.google.android.gms.common.ConnectionResult
+import com.google.android.gms.common.GoogleApiAvailability
 
 
 class MainActivity : AppCompatActivity() {
@@ -31,8 +33,15 @@ class MainActivity : AppCompatActivity() {
         tabLayout.getTabAt(1)!!.setIcon(R.drawable.tab_icon_selector_map)
         tabLayout.getTabAt(2)!!.setIcon(R.drawable.tab_icon_selector_setting)
 
+        // check gps permission
         val gpsPermmissionSetting = GPSPermmissionSetting(this)
         gpsPermmissionSetting.checkGPSPermission()
+
+        //check google api
+        val resultCode = GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(this)
+        if(resultCode != ConnectionResult.SUCCESS){
+            GoogleApiAvailability.getInstance().getErrorDialog(this, resultCode, 0).show()
+        }
     }
 
 }
