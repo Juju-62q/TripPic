@@ -1,6 +1,7 @@
 package com.example.okano.trippic.Fragments
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.util.Log
@@ -8,6 +9,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.beardedhen.androidbootstrap.BootstrapButton
+import com.example.okano.trippic.MapsActivity
+//import com.example.okano.trippic.MapsActivity
 import com.example.okano.trippic.R
 import com.google.android.gms.maps.*
 import com.google.android.gms.maps.model.LatLng
@@ -27,7 +30,7 @@ class MapFragment : Fragment(), OnMapReadyCallback, View.OnClickListener {
         super.onCreate(savedInstanceState)
     }
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater!!.inflate(R.layout.fragment_map, container, false)
 
         //Button
@@ -43,7 +46,7 @@ class MapFragment : Fragment(), OnMapReadyCallback, View.OnClickListener {
         mMapView!!.onResume()
 
         try{
-            MapsInitializer.initialize(activity.applicationContext)
+            MapsInitializer.initialize(activity)
         }catch (e : Exception){
             e.printStackTrace()
         }
@@ -101,7 +104,7 @@ class MapFragment : Fragment(), OnMapReadyCallback, View.OnClickListener {
                     return
                 }
                 R.id.ownPoint -> {
-                    ownLogClicked(v)
+                    ownPointClicked(v)
                     return
                 }
                 else -> return
@@ -111,10 +114,12 @@ class MapFragment : Fragment(), OnMapReadyCallback, View.OnClickListener {
     }
 
     fun startLogClicked(v: View){
+        val intent = Intent(activity, MapsActivity::class.java)
+        startActivity(intent)
         return
     }
 
-    fun ownLogClicked(v: View){
+    fun ownPointClicked(v: View){
         return
     }
 }// Required empty public constructor
