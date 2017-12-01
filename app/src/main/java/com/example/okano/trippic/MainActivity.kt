@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar
 import com.example.okano.trippic.Fragments.PageAdapter
 import com.example.okano.trippic.GPS.GPSPermmissionSetting
 import com.example.okano.trippic.DB.RealmManager
+import com.example.okano.trippic.DB.TripInfo
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.GoogleApiAvailability
 

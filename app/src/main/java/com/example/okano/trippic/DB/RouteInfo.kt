@@ -5,10 +5,10 @@ import io.realm.RealmObject
 /**
  * Created by okano on 2017/12/01.
  */
-class RouteInfo : RealmObject() {
-    var latitude : Double = 0.0
-    var langitude : Double = 0.0
-    var time : String = ""
-    var picPath : String? = null
-    var tripId : Long = 0
-}
+open class RouteInfo(
+    open var latitude : Double = 0.0,
+    open var langitude : Double = 0.0,
+    open var time : String = "",
+    open var picPath : String? = null,
+    open var tripId : Long = 0
+    ) : RealmObject () {}
