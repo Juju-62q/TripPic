@@ -81,25 +81,25 @@ class MapsActivity : AppCompatActivity() {
         priority = 0
 
         if (priority == 0) {
-            locationRequest!!.priority = LocationRequest.PRIORITY_HIGH_ACCURACY
+            locationRequest.priority = LocationRequest.PRIORITY_HIGH_ACCURACY
         } else if (priority == 1) {
-            locationRequest!!.priority = LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY
+            locationRequest.priority = LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY
         } else if (priority == 2) {
-            locationRequest!!.priority = LocationRequest.PRIORITY_LOW_POWER
+            locationRequest.priority = LocationRequest.PRIORITY_LOW_POWER
         } else {
-            locationRequest!!.priority = LocationRequest.PRIORITY_NO_POWER
+            locationRequest.priority = LocationRequest.PRIORITY_NO_POWER
         }
 
-        locationRequest!!.interval = 60000
+        locationRequest.interval = 60000
 
-        locationRequest!!.fastestInterval = 5000
+        locationRequest.fastestInterval = 5000
 
     }
 
     // 端末で測位できる状態か確認する。wifi, GPSなどがOffになっているとエラー情報のダイアログが出る
     private fun buildLocationSettingsRequest() {
         val builder = LocationSettingsRequest.Builder()
-        builder.addLocationRequest(locationRequest!!)
+        builder.addLocationRequest(locationRequest)
         locationSettingsRequest = builder.build()
     }
 
@@ -119,7 +119,7 @@ class MapsActivity : AppCompatActivity() {
     // FusedLocationApiによるlocation updatesをリクエスト
     private fun startLocationUpdates() {
         // Begin by checking if the device has the necessary location settings.
-        settingsClient!!.checkLocationSettings(locationSettingsRequest)
+        settingsClient.checkLocationSettings(locationSettingsRequest)
                 .addOnSuccessListener(this, OnSuccessListener {
                     Log.i("debug", "All location settings are satisfied.")
 
@@ -129,7 +129,7 @@ class MapsActivity : AppCompatActivity() {
                             Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                         return@OnSuccessListener
                     }
-                    fusedLocationClient!!.requestLocationUpdates(locationRequest, locationCallback!!, Looper.myLooper())
+                    fusedLocationClient.requestLocationUpdates(locationRequest, locationCallback, Looper.myLooper())
                 })
                 .addOnFailureListener(this) { e ->
                     val statusCode = (e as ApiException).statusCode
@@ -166,7 +166,7 @@ class MapsActivity : AppCompatActivity() {
             return
         }
 
-        fusedLocationClient!!.removeLocationUpdates(locationCallback!!)
+        fusedLocationClient.removeLocationUpdates(locationCallback)
                 .addOnCompleteListener(this) { requestingLocationUpdates = false }
     }
 

@@ -11,13 +11,12 @@ class TripInfoDao(realm : Realm) {
     private var mRealm : Realm = realm
 
     fun test(){
-        mRealm.beginTransaction()
-        var test = mRealm.createObject(TripInfo::class.java, 1)
-            //test.tripId = 1
-        test.tripName = "test"
-        mRealm.commitTransaction()
-        val props: RealmResults<TripInfo> = mRealm.where(TripInfo::class.java).findAll()
-        val i = 0
+        var test = TripInfo(tripId = 23, tripName = "test")
 
+
+        mRealm.executeTransaction {
+            mRealm.insertOrUpdate(test)
+        }
+        val props: RealmResults<TripInfo> = mRealm.where(TripInfo::class.java).findAll()
     }
 }
