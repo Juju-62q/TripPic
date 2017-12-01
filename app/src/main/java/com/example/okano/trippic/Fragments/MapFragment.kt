@@ -31,13 +31,13 @@ class MapFragment : Fragment(), OnMapReadyCallback, View.OnClickListener {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater!!.inflate(R.layout.fragment_map, container, false)
+        val view = inflater.inflate(R.layout.fragment_map, container, false)
 
         //Button
-        val logButton = view!!.findViewById<BootstrapButton>(R.id.startLog)
+        val logButton = view.findViewById<BootstrapButton>(R.id.startLog)
         logButton.setOnClickListener(this)
 
-        val ownPoint = view!!.findViewById<BootstrapButton>(R.id.ownPoint)
+        val ownPoint = view.findViewById<BootstrapButton>(R.id.ownPoint)
         ownPoint.setOnClickListener(this)
 
         //Google Map
