@@ -30,16 +30,15 @@ import com.beardedhen.androidbootstrap.BootstrapButton
 class MapsActivity : AppCompatActivity() {
 
     // Fused Location Provider API.
-    private var fusedLocationClient: FusedLocationProviderClient? = null
+    private lateinit var fusedLocationClient: FusedLocationProviderClient
 
     // Location Settings APIs.
-    private var settingsClient: SettingsClient? = null
-    private var locationSettingsRequest: LocationSettingsRequest? = null
-    private var locationCallback: LocationCallback? = null
-    private var locationRequest: LocationRequest? = null
-    private var location: Location? = null
+    private lateinit var settingsClient: SettingsClient
+    private lateinit var locationSettingsRequest: LocationSettingsRequest
+    private lateinit var locationCallback: LocationCallback
+    private lateinit var locationRequest: LocationRequest
+    private lateinit var location: Location
 
-    private var lastUpdateTime: String? = null
     private var requestingLocationUpdates: Boolean = false
     private var priority = 0
 
@@ -48,14 +47,12 @@ class MapsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_maps)
 
-
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
         settingsClient = LocationServices.getSettingsClient(this)
 
         createLocationCallback()
         createLocationRequest()
         buildLocationSettingsRequest()
-
 
         // 測位開始
         val buttonStart = findViewById<BootstrapButton>(R.id.button_start)
@@ -74,7 +71,6 @@ class MapsActivity : AppCompatActivity() {
                 super.onLocationResult(locationResult)
 
                 location = locationResult!!.lastLocation
-                lastUpdateTime = DateFormat.getTimeInstance().format(Date())
             }
         }
     }
@@ -85,31 +81,17 @@ class MapsActivity : AppCompatActivity() {
         priority = 0
 
         if (priority == 0) {
-            // 高い精度の位置情報を取得したい場合
-            // インターバルを例えば5000msecに設定すればマップアプリのようなリアルタイム測位となる
-            // 主に精度重視のためGPSが優先的に使われる
             locationRequest!!.priority = LocationRequest.PRIORITY_HIGH_ACCURACY
         } else if (priority == 1) {
-            // バッテリー消費を抑えたい場合、精度は100mと悪くなる
-            // 主にwifi,電話網での位置情報が主となる
-            // この設定の例としては　setInterval(1時間)、setFastestInterval(1分)
             locationRequest!!.priority = LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY
         } else if (priority == 2) {
-            // バッテリー消費を抑えたい場合、精度は10kmと悪くなる
             locationRequest!!.priority = LocationRequest.PRIORITY_LOW_POWER
         } else {
-            // 受け身的な位置情報取得でアプリが自ら測位せず、他のアプリで得られた位置情報は入手できる
             locationRequest!!.priority = LocationRequest.PRIORITY_NO_POWER
         }
 
-        // アップデートのインターバル期間設定
-        // このインターバルは測位データがない場合はアップデートしません
-        // また状況によってはこの時間よりも長くなることもあり必ずしも正確な時間ではありません
-        // 他に同様のアプリが短いインターバルでアップデートしているとそれに影響されインターバルが短くなることがあります。
-        // 単位：msec
         locationRequest!!.interval = 60000
-        // このインターバル時間は正確です。これより早いアップデートはしません。
-        // 単位：msec
+
         locationRequest!!.fastestInterval = 5000
 
     }
@@ -145,13 +127,6 @@ class MapsActivity : AppCompatActivity() {
                     if (ActivityCompat.checkSelfPermission(this,
                             Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this,
                             Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                        // TODO: Consider calling
-                        //    ActivityCompat#requestPermissions
-                        // here to request the missing permissions, and then overriding
-                        //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                        //                                          int[] grantResults)
-                        // to handle the case where the user grants the permission. See the documentation
-                        // for ActivityCompat#requestPermissions for more details.
                         return@OnSuccessListener
                     }
                     fusedLocationClient!!.requestLocationUpdates(locationRequest, locationCallback!!, Looper.myLooper())
@@ -187,7 +162,6 @@ class MapsActivity : AppCompatActivity() {
 
         if (!(requestingLocationUpdates)) {
             Log.d("debug", "stopLocationUpdates: updates never requested, no-op.")
-
 
             return
         }
