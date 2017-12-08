@@ -36,8 +36,8 @@ class MainActivity : AppCompatActivity() {
         tabLayout.getTabAt(2)!!.setIcon(R.drawable.tab_icon_selector_setting)
 
         // check gps permission
-        val gpsPermmissionSetting = GPSPermmissionSetting(this)
-        gpsPermmissionSetting.checkGPSPermission()
+        //val gpsPermmissionSetting = GPSPermmissionSetting(this)
+        //gpsPermmissionSetting.checkGPSPermission()
 
         //check google api
         val resultCode = GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(this)

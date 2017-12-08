@@ -37,8 +37,8 @@ class MapFragment : Fragment(), OnMapReadyCallback, View.OnClickListener {
         val logButton = view.findViewById<BootstrapButton>(R.id.startLog)
         logButton.setOnClickListener(this)
 
-        val ownPoint = view.findViewById<BootstrapButton>(R.id.ownPoint)
-        ownPoint.setOnClickListener(this)
+        //val ownPoint = view.findViewById<BootstrapButton>(R.id.ownPoint)
+        //ownPoint.setOnClickListener(this)
 
         //Google Map
         mMapView = view.findViewById(R.id.mapView)
@@ -103,10 +103,10 @@ class MapFragment : Fragment(), OnMapReadyCallback, View.OnClickListener {
                     startLogClicked(v)
                     return
                 }
-                R.id.ownPoint -> {
+                /*R.id.ownPoint -> {
                     ownPointClicked(v)
                     return
-                }
+                }*/
                 else -> return
             }
         }
@@ -119,7 +119,7 @@ class MapFragment : Fragment(), OnMapReadyCallback, View.OnClickListener {
         return
     }
 
-    fun ownPointClicked(v: View){
+    /*fun ownPointClicked(v: View){
         return
-    }
+    }*/
 }// Required empty public constructor

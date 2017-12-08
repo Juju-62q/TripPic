@@ -17,12 +17,17 @@ class RealmManager {
     fun initRealm (context: Context){
         //val realmConfig = RealmConfiguration.Builder(context).build()
         Realm.init(context)
-        mRealm = Realm.getDefaultInstance()
+
+        val realmConfig = RealmConfiguration.Builder()
+                .deleteRealmIfMigrationNeeded()
+                .build()
+
+        mRealm = Realm.getInstance(realmConfig)
 
         tripInfoDao = TripInfoDao(mRealm)
         routeInfoDao = RouteInfoDao(mRealm)
 
-        tripInfoDao.test()
+        //tripInfoDao.test()
     }
 
     fun closeRealm(){

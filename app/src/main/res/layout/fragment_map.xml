@@ -21,7 +21,7 @@
         bootstrap:bootstrapBrand="primary" />
     <!--android:layout_marginBottom="50dp"-->
 
-    <com.beardedhen.androidbootstrap.BootstrapButton
+    <!--<com.beardedhen.androidbootstrap.BootstrapButton
         android:id="@+id/ownPoint"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -31,8 +31,6 @@
         bootstrap:fontAwesomeIcon="fa_map_marker"
         bootstrap:bootstrapSize="xl"
         bootstrap:roundedCorners="true" />
-        />
-
-
+        />-->
     
 </FrameLayout>
