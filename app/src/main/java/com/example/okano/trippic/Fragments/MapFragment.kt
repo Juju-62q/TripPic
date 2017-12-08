@@ -1,6 +1,10 @@
 package com.example.okano.trippic.Fragments
 
 
+import android.app.AlertDialog
+import android.app.FragmentManager
+import android.app.FragmentTransaction
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -115,7 +119,16 @@ class MapFragment : Fragment(), OnMapReadyCallback, View.OnClickListener {
 
     fun startLogClicked(v: View){
         val intent = Intent(activity, MapsActivity::class.java)
-        startActivity(intent)
+
+        val dialog = MapDialogFragment()
+        dialog.onOkClickListener = DialogInterface.OnClickListener({dialog,id ->
+            startActivity(intent)
+        })
+        dialog.show(activity.supportFragmentManager,"tag")
+
+
+        //
+        // startActivity(intent)
         return
     }
 
@@ -123,3 +136,4 @@ class MapFragment : Fragment(), OnMapReadyCallback, View.OnClickListener {
         return
     }*/
 }// Required empty public constructor
+
