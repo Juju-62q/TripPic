@@ -23,9 +23,8 @@ import com.google.android.gms.location.LocationSettingsRequest
 import com.google.android.gms.location.LocationSettingsStatusCodes
 import com.google.android.gms.location.SettingsClient
 import com.google.android.gms.tasks.OnSuccessListener
-import java.text.DateFormat
-import java.util.Date
 import com.beardedhen.androidbootstrap.BootstrapButton
+import com.example.okano.trippic.GPS.GPSPermmissionSetting
 
 class MapsActivity : AppCompatActivity() {
 
@@ -46,6 +45,9 @@ class MapsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_maps)
+
+        val gpsPermmission = GPSPermmissionSetting(this)
+        gpsPermmission.checkGPSPermission()
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
         settingsClient = LocationServices.getSettingsClient(this)
