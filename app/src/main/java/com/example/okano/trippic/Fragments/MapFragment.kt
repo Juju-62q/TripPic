@@ -120,8 +120,10 @@ class MapFragment : Fragment(), OnMapReadyCallback, View.OnClickListener {
     fun startLogClicked(v: View){
         val intent = Intent(activity, MapsActivity::class.java)
 
-        val dialog = MapDialogFragment()
-        dialog.onOkClickListener = DialogInterface.OnClickListener({dialog,id ->
+        var dialog = MapDialogFragment()
+        dialog.title = "旅行開始"
+        dialog.msg = "旅行の名前を入力してください。"
+        dialog.onOkClickListener = DialogInterface.OnClickListener({_,_ ->
             startActivity(intent)
         })
         dialog.show(activity.supportFragmentManager,"tag")
