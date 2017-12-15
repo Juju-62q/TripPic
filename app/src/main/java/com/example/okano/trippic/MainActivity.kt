@@ -6,16 +6,12 @@ import android.support.design.widget.TabLayout
 import android.support.v4.view.ViewPager
 import android.support.v7.widget.Toolbar
 import com.example.okano.trippic.Fragments.PageAdapter
-import com.example.okano.trippic.GPS.GPSPermmissionSetting
-import com.example.okano.trippic.DB.RealmManager
-import com.example.okano.trippic.DB.TripInfo
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.GoogleApiAvailability
 
 class MainActivity : AppCompatActivity() {
     private var pageAdapter: PageAdapter? = null
     private var viewPager: ViewPager? = null
-    private lateinit var realmManager : RealmManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,13 +41,10 @@ class MainActivity : AppCompatActivity() {
             GoogleApiAvailability.getInstance().getErrorDialog(this, resultCode, 0).show()
         }
 
-        realmManager = RealmManager()
-        realmManager.initRealm(this)
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        realmManager.closeRealm()
     }
 
 }

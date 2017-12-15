@@ -1,7 +1,6 @@
 package com.example.okano.trippic.DB
 
 import io.realm.Realm
-import io.realm.RealmResults
 import java.util.*
 
 /**
@@ -10,13 +9,21 @@ import java.util.*
 class TripInfoDao(realm : Realm) {
     private var mRealm : Realm = realm
 
-    fun test(){
-        var test = TripInfo(tripId = 23, tripName = "test")
+    fun createTripInfo(tripName : String){
 
-
-        mRealm.executeTransaction {
-            mRealm.insertOrUpdate(test)
+        // make new trip Id
+        var tripId = 1
+        val maxTripId = mRealm.where(TripInfo::class.java).max("tripId")
+        if (maxTripId != null){
+            tripId = maxTripId.toInt() + 1
         }
-        val props: RealmResults<TripInfo> = mRealm.where(TripInfo::class.java).findAll()
+
+        // create data
+        mRealm.executeTransaction {
+            var tripInfo = mRealm.createObject(TripInfo::class.java, tripId)
+            tripInfo.tripName = tripName
+            tripInfo.startTime = Date()
+            mRealm.copyToRealm(tripInfo)
+        }
     }
 }

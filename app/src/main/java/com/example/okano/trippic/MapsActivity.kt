@@ -23,8 +23,6 @@ import com.google.android.gms.location.LocationSettingsRequest
 import com.google.android.gms.location.LocationSettingsStatusCodes
 import com.google.android.gms.location.SettingsClient
 import com.google.android.gms.tasks.OnSuccessListener
-import java.text.DateFormat
-import java.util.Date
 import com.beardedhen.androidbootstrap.BootstrapButton
 import com.example.okano.trippic.GPS.GPSPermmissionSetting
 

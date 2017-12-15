@@ -1,6 +1,5 @@
 package com.example.okano.trippic.Fragments
 
-import android.app.Activity
 import android.app.AlertDialog
 import android.app.Dialog
 import android.support.v4.app.DialogFragment
@@ -13,8 +12,8 @@ import com.example.okano.trippic.R
  */
 class MapDialogFragment(): DialogFragment() {
 
-    var title = "title"
-    var msg = "msg"
+    var title = ""
+    var msg = ""
     var okText = "OK"
     var cancelText = "cancel"
     /** ok押下時の挙動 */
