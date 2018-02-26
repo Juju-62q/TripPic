@@ -1,13 +1,36 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.okano.trippic.Fragments.MapFragment">
+    xmlns:bootstrap="http://schemas.android.com/apk/res-auto">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/mapView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent" />
 
+    <com.beardedhen.androidbootstrap.BootstrapButton
+        android:id="@+id/startLog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginBottom="50dp"
+        android:layout_marginHorizontal="30dp"
+        android:text="ログを開始"
+        bootstrap:roundedCorners="true"
+        bootstrap:bootstrapSize="xl"
+        bootstrap:bootstrapBrand="primary" />
+    <!--android:layout_marginBottom="50dp"-->
+
+    <!--<com.beardedhen.androidbootstrap.BootstrapButton
+        android:id="@+id/ownPoint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|top"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="30dp"
+        bootstrap:fontAwesomeIcon="fa_map_marker"
+        bootstrap:bootstrapSize="xl"
+        bootstrap:roundedCorners="true" />
+        />-->
+    
 </FrameLayout>

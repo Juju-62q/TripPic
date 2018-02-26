@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+
+    <!-- setting -->
+    <string-array name="intervalTimeForDisplay">
+        <item>1分</item>
+        <item>5分</item>
+        <item>10分</item>
+        <item>15分</item>
+        <item>20分</item>
+    </string-array>
+    <string-array name="intervalTimeVal">
+        <item>1</item>
+        <item>5</item>
+        <item>10</item>
+        <item>15</item>
+        <item>20</item>
+    </string-array>
+</resources>

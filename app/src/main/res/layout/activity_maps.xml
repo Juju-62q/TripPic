@@ -1,0 +1,35 @@
+<fragment xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:map="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/map"
+    android:name="com.google.android.gms.maps.SupportMapFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.okano.trippic.MapsActivity"
+    xmlns:bootstrap="http://schemas.android.com/apk/res-auto">
+
+    <com.beardedhen.androidbootstrap.BootstrapButton
+        android:id="@+id/button_start"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginBottom="50dp"
+        android:layout_marginHorizontal="30dp"
+        android:text="Start"
+        bootstrap:roundedCorners="true"
+        bootstrap:bootstrapSize="xl"
+        bootstrap:bootstrapBrand="primary" />
+
+    <com.beardedhen.androidbootstrap.BootstrapButton
+        android:id="@+id/button_stop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginBottom="130dp"
+        android:layout_marginHorizontal="30dp"
+        android:text="Stop"
+        bootstrap:roundedCorners="true"
+        bootstrap:bootstrapSize="xl"
+        bootstrap:bootstrapBrand="primary" />
+
+</fragment>
